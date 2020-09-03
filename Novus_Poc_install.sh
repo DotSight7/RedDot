@@ -11,11 +11,46 @@ echo -e "=======================================================================
 ==============================================================================="
 
 PS3='Please enter your choice:'
-options=("All install" "update" "groupinstall" "install epel-release nano" "install libaio" "rpmfusion-free-release-7.noarch.rpm" "install ffmpeg-devel" "install rsyslog" "install firewalld" "clear" "Quit" )
+options=("SHIELD@HOME" "All install" "update" "groupinstall" "install epel-release nano" "install libaio" "rpmfusion-free-release-7.noarch.rpm" "install ffmpeg-devel" "install rsyslog" "install firewalld" "clear" "Quit" )
 
 select opt in "${options[@]}"
 do
 	case $opt in
+		"SHIELD@HOME")
+echo -e "
+ ________  ___  ___  ___  _______   ___       ________  ___  ___  ________  _____ ______   _______      
+|\   ____\|\  \|\  \|\  \|\  ___ \ |\  \     |\   ___ \|\  \|\  \|\   __  \|\   _ \  _   \|\  ___ \     
+\ \  \___|\ \  \\\  \ \  \ \   __/|\ \  \    \ \  \_|\ \ \  \\\  \ \  \|\  \ \  \\\__\ \  \ \   __/|    
+ \ \_____  \ \   __  \ \  \ \  \_|/_\ \  \    \ \  \ \\ \ \   __  \ \  \\\  \ \  \\|__| \  \ \  \_|/__  
+  \|____|\  \ \  \ \  \ \  \ \  \_|\ \ \  \____\ \  \_\\ \ \  \ \  \ \  \\\  \ \  \    \ \  \ \  \_|\ \ 
+    ____\_\  \ \__\ \__\ \__\ \_______\ \_______\ \_______\ \__\ \__\ \_______\ \__\    \ \__\ \_______\
+   |\_________\|__|\|__|\|__|\|_______|\|_______|\|_______|\|__|\|__|\|_______|\|__|     \|__|\|_______|
+   \|_________|                                                                                         
+                                                                                                        
+                                                                                                        \e[49m"
+		PS3='Please enter your choice:'
+		options2=( "IP INTERFACE" "ifcfg" "NO")
+		select opt2 in "${options2[@]}"
+		do
+		case $opt2 in 
+		"IP INTERFACE")
+		echo "IP INTERFACE"
+		ip addr
+		;;
+		"ifcfg")
+		echo "ifcfg"
+		cd /etc/sysconfig/network-scripts/
+		;;
+		"NO")
+		echo "Back menu => ENTER KEY"
+			break;;
+		esac
+		done
+		;;
+
+
+
+
 		"All install")
 echo -e                                                                                  "
       _/_/    _/  _/      _/                        _/                _/  _/
@@ -44,7 +79,7 @@ INSTALL==> 8.install firewalld
 		sudo yum -y groupinstall "Development Tools"
 		sudo yum -y install epel-release nano
 		sudo yum -y install libaio cairo-devel libjpeg-turbo-devel libjpeg-devel libpng-devel uuid-devel libtool freerdp-devel pango-devel libssh2-devel libtelnet-devel libvncserver-devel libwebsockets-devel pulseaudio-libs-devel openssl-devel libvorbis-devel libwebp-devel gnu-free-mono-fonts
-		sudo rpm -Uvh rpmfusion-free-release-7.noarch.rpm  => 이 파일은 첨부합니다.
+		sudo rpm -Uvh rpmfusion-free-release-7.noarch.rpm
 		sudo yum -y install ffmpeg-devel
 		sudo yum -y install rsyslog
 		sudo yum -y install firewalld
@@ -54,7 +89,9 @@ INSTALL==> 8.install firewalld
 			break;;
 		esac
 		done
-		;;	
+		;;
+
+
 		"update")
 		echo "update"
 		sudo yum -y update		
