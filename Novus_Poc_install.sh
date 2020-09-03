@@ -39,10 +39,10 @@ echo -e "
 		;;
 		"ifcfg")
 		echo "ifcfg"
-		cd /etc/sysconfig/network-scripts/
+		cd /etc/sysconfig/network-scripts/ifcfg
 		;;
 		"NO")
-		echo "Back menu => ENTER KEY"
+		echo "Back menu => ENTER KEY or 12 exit"
 			break;;
 		esac
 		done
