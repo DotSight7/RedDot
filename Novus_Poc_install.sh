@@ -27,7 +27,7 @@ echo -e "
                                                                                         \e[49m"
 		PS3='Please enter your choice:'
 		options2=( "Help!!" "IP INTERFACE" "ifcfg" "Downlod SHIELD@HOME" "restart network" "Check package" 
-			 "shieldathome.tar.gz" "shieldathome.install" "SHIELD@HOME interface name" "Edit" "NO")
+			 "shieldathome.tar.gz" "shieldathome.install" "Edit" "NO")
 		select opt2 in "${options2[@]}"
 		do
 		case $opt2 in 
@@ -62,29 +62,19 @@ echo -e "
 		systemctl restart network
 		;;
 
-		"Check package")
+		"Check package properties")
 		echo "Check package..."
-		cd /home/app/tomcat9/webapps/workathome/WEB-INF/classes/properties
+		vi /home/app/tomcat9/webapps/workathome/WEB-INF/classes/properties/server.properties
 		;;
 
         "shieldathome.tar.gz")
 		echo "shieldathome.tar.gz"
-        tar xvf /home/shieldathome.tar.gz
+        tar xvf shieldathome.tar.gz
 		;;
 
         "shieldathome.install")
 		echo "shieldathome.install"
         ./home/shieldathome/install.sh
-		;;
-
-		"SHIELD@HOME interface name")
-		echo "SHIELD@HOME interface name..."
-		vi /home/app/tomcat9/webapps/workathome/WEB-INF/classes/properties/server.properties
-		;;
-		
-		"Edit")
-		echo "Edit..."
-		vi Novus_Poc_install.sh 
 		;;
 
 		"tomcat restart")
@@ -93,6 +83,14 @@ echo -e "
 		systemctl status tomcat
 		;;
 
+		"Check package properties")
+		echo "Check package..."
+		cd /home/app/tomcat9/webapps/workathome/WEB-INF/classes/properties
+		;;
+		"Edit")
+		echo "Edit..."
+		vi Novus_Poc_install.sh 
+		;;
 
 		"NO")
 		echo "Back menu => ENTER KEY or 12 exit..."
