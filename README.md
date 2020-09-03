@@ -1,2 +1,0 @@
-# RedDot
-HELLO WORLD!!
