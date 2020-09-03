@@ -17,32 +17,85 @@ select opt in "${options[@]}"
 do
 	case $opt in
 		"SHIELD@HOME")
-echo -e "
- ________  ___  ___  ___  _______   ___       ________  ___  ___  ________  _____ ______   _______      
-|\   ____\|\  \|\  \|\  \|\  ___ \ |\  \     |\   ___ \|\  \|\  \|\   __  \|\   _ \  _   \|\  ___ \     
-\ \  \___|\ \  \\\  \ \  \ \   __/|\ \  \    \ \  \_|\ \ \  \\\  \ \  \|\  \ \  \\\__\ \  \ \   __/|    
- \ \_____  \ \   __  \ \  \ \  \_|/_\ \  \    \ \  \ \\ \ \   __  \ \  \\\  \ \  \\|__| \  \ \  \_|/__  
-  \|____|\  \ \  \ \  \ \  \ \  \_|\ \ \  \____\ \  \_\\ \ \  \ \  \ \  \\\  \ \  \    \ \  \ \  \_|\ \ 
-    ____\_\  \ \__\ \__\ \__\ \_______\ \_______\ \_______\ \__\ \__\ \_______\ \__\    \ \__\ \_______\
-   |\_________\|__|\|__|\|__|\|_______|\|_______|\|_______|\|__|\|__|\|_______|\|__|     \|__|\|_______|
-   \|_________|                                                                                         
-                                                                                                        
-                                                                                                        \e[49m"
+echo -e "                                                   
+ ███████╗██╗  ██╗██╗███████╗██╗     ██████╗  ██████╗ ██╗  ██╗ ██████╗ ███╗   ███╗███████╗
+██╔════╝██║  ██║██║██╔════╝██║     ██╔══██╗██╔═══██╗██║  ██║██╔═══██╗████╗ ████║██╔════╝
+███████╗███████║██║█████╗  ██║     ██║  ██║██║██╗██║███████║██║   ██║██╔████╔██║█████╗  
+╚════██║██╔══██║██║██╔══╝  ██║     ██║  ██║██║██║██║██╔══██║██║   ██║██║╚██╔╝██║██╔══╝  
+███████║██║  ██║██║███████╗███████╗██████╔╝╚█║████╔╝██║  ██║╚██████╔╝██║ ╚═╝ ██║███████╗
+╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚═════╝  ╚╝╚═══╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+                                                                                        \e[49m"
 		PS3='Please enter your choice:'
-		options2=( "IP INTERFACE" "ifcfg" "NO")
+		options2=( "Help!!" "IP INTERFACE" "ifcfg" "Downlod SHIELD@HOME" "restart network" "Check package" 
+			 "shieldathome.tar.gz" "shieldathome.install" "SHIELD@HOME interface name" "Edit" "NO")
 		select opt2 in "${options2[@]}"
 		do
 		case $opt2 in 
+		"Help!!")
+		echo "
+		1.login
+		2.Check IP INTERFACE
+		3.Check vi ifcfg-IP INTERFACE ONBOOT=no => ONBOOT=YES 
+		4.network restart
+		5.Check IP INTERFACE
+		6.Shieldathome.tar.gz Downlod> /home tar xvf shieldathome.tar.gz
+		7.Check shieldathome install.sh "
+		;;
+
 		"IP INTERFACE")
-		echo "IP INTERFACE"
+		echo "IP INTERFACE..."
 		ip addr
 		;;
+
 		"ifcfg")
-		echo "ifcfg"
-		cd /etc/sysconfig/network-scripts/ifcfg
+		echo "ifcfg..."
+		vi /etc/sysconfig/network-scripts/ifcfg-ens33
 		;;
+
+		"Downlod SHIELD@HOME")
+		echo "Downlod SHIELD@HOME >>> /Home"
+		wget -P /home/ https://1drv.ms/u/s!Av_OyRX3WJVB8xH3ioS-m40nQM89?e=xzb4RA 
+		;;
+
+		"restart network")
+		echo "restart network..."
+		systemctl restart network
+		;;
+
+		"Check package")
+		echo "Check package..."
+		cd /home/app/tomcat9/webapps/workathome/WEB-INF/classes/properties
+		;;
+
+        "shieldathome.tar.gz")
+		echo "shieldathome.tar.gz"
+        tar xvf /home/shieldathome.tar.gz
+		;;
+
+        "shieldathome.install")
+		echo "shieldathome.install"
+        ./home/shieldathome/install.sh
+		;;
+
+		"SHIELD@HOME interface name")
+		echo "SHIELD@HOME interface name..."
+		vi /home/app/tomcat9/webapps/workathome/WEB-INF/classes/properties/server.properties
+		;;
+		
+		"Edit")
+		echo "Edit..."
+		vi Novus_Poc_install.sh 
+		;;
+
+		"tomcat restart")
+		echo "tomcat restart & status tomcat..."
+		systemctl restart tomcat
+		systemctl status tomcat
+		;;
+
+
 		"NO")
-		echo "Back menu => ENTER KEY or 12 exit"
+		echo "Back menu => ENTER KEY or 12 exit..."
 			break;;
 		esac
 		done
