@@ -52,7 +52,7 @@ echo -e "
 
 		"Downlod SHIELD@HOME")
 		echo "Downlod SHIELD@HOME >>> /Home"
-		wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1rWmTY9GnmF3Ap0OiKJytbYM0F97HKXDC' -O shieldathome.tar.gz
+		wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1D47wa1NbyTuJZEqP6ptSyayc9F10Ehyd?' -O shieldathome
 		;;
 
 
