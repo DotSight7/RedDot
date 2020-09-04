@@ -32,14 +32,7 @@ echo -e "
 		do
 		case $opt2 in 
 		"Help!!")
-		echo "
-		1.login
-		2.Check IP INTERFACE
-		3.Check vi ifcfg-IP INTERFACE ONBOOT=no => ONBOOT=YES 
-		4.network restart
-		5.Check IP INTERFACE
-		6.Shieldathome.tar.gz Downlod> /home tar xvf shieldathome.tar.gz
-		7.Check shieldathome install.sh "
+		echo "Plzz find the Grayhat-->calling +070-4330-1612"
 		;;
 
 		"IP INTERFACE")
@@ -51,15 +44,22 @@ echo -e "
 		echo "ifcfg..."
 		vi /etc/sysconfig/network-scripts/ifcfg-ens33
 		;;
-
-		"Downlod SHIELD@HOME")
-		echo "Downlod SHIELD@HOME >>> /Home"
-		wget -P /home/ https://1drv.ms/u/s!Av_OyRX3WJVB8xH3ioS-m40nQM89?e=xzb4RA 
-		;;
-
+		
 		"restart network")
 		echo "restart network..."
 		systemctl restart network
+		;;
+
+		"Downlod SHIELD@HOME")
+		echo "Downlod SHIELD@HOME >>> /Home"
+		wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1rWmTY9GnmF3Ap0OiKJytbYM0F97HKXDC'
+		;;
+
+
+
+		"Check package properties")
+		echo "Check package..."
+		cd /home/app/tomcat9/webapps/workathome/WEB-INF/classes/properties
 		;;
 
 		"Check package properties")
@@ -83,10 +83,7 @@ echo -e "
 		systemctl status tomcat
 		;;
 
-		"Check package properties")
-		echo "Check package..."
-		cd /home/app/tomcat9/webapps/workathome/WEB-INF/classes/properties
-		;;
+
 		"Edit")
 		echo "Edit..."
 		vi Novus_Poc_install.sh 
