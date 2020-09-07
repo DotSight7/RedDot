@@ -52,7 +52,7 @@ echo -e "
 
 		"Downlod SHIELD@HOME")
 		echo "Downlod SHIELD@HOME >>> /Home"
-		wget -O shieldathome.tar.gz "https://drive.google.com/uc?export=download&id=1rWmTY9GnmF3Ap0OiKJytbYM0F97HKXDC"
+		wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1oyJr7XLgEi6OyDraB_mgO1xNR-ptplVx&export=download' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1oyJr7XLgEi6OyDraB_mgO1xNR-ptplVx&export=download" -O shieldathome.tar.gz && rm -rf /tmp/cookies.txt
 		;;
 
 
