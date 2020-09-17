@@ -56,7 +56,6 @@ echo -e "
 		;;
 
 
-
 		"Check package properties")
 		echo "Check package..."
 		cd /home/app/tomcat9/webapps/workathome/WEB-INF/classes/properties
